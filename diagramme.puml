@@ -2,17 +2,18 @@
 
 title Projet Netflix - Diagramme de Classe
 
-class Plateforme << (S,#FF7700) Singleton >>{
+class Netflix << (S,#FF7700) Singleton >>{
+    {static} - instance: Netflix
     {static} - listeUtilisateur: List<Utilisateur>
     {static} - listeRessource: List<Ressource>
-    {static} + getInstance(): Plateforme
+    {static} + getInstance(): Netflix
     + ajouterUtilisateur(utilisateur: Utilisateur): void
     + ajouterRessource(ressource: Ressource): void
     + getUtilisateur(email: string): Utilisateur
 }
 
-Plateforme *-- "0..*" Utilisateur
-Plateforme *-- "0..*" Ressource
+Netflix *-- "0..*" Utilisateur
+Netflix *-- "0..*" Ressource
 
 /'
 ---- Définition des Ressources ----
