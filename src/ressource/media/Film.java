@@ -7,19 +7,13 @@ import java.util.Date;
 import java.util.List;
 
 public class Film extends Ressource {
-    private int duree;
     private List<String> acteurs;
     private TYPE_FILM_SERIE type;
 
     public Film(String nom, String description, int age_min, Date sortie, BandeAnnonce bandeAnnonce, int duree, List<String> acteurs, TYPE_FILM_SERIE type) {
-        super(nom, description, age_min, sortie, bandeAnnonce);
-        this.duree = duree;
+        super(nom, description, age_min, sortie, bandeAnnonce, duree);
         this.acteurs = acteurs;
         this.type = type;
-    }
-
-    public int getDuree() {
-        return duree;
     }
 
     public List<String> getActeurs() {
