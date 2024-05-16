@@ -1,0 +1,3 @@
+public enum TYPE_ABONNEMENT {
+    SOLO, DUO, FAMILLE
+}
