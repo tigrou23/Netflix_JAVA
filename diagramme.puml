@@ -11,8 +11,8 @@ class Plateforme << (S,#FF7700) Singleton >>{
     + getUtilisateur(email: string): Utilisateur
 }
 
-Plateforme *-- Utilisateur
-Plateforme *-- Ressource
+Plateforme "1" *-- "0..*" Utilisateur
+Plateforme "1" *-- "0..*" Ressource
 
 /'
 ---- Définition des Ressources ----
@@ -91,7 +91,20 @@ class Serie{
     + getNbSaisons(): integer
     + getNbEpisodes(): integer
     + getType(): TYPE_FILM_SERIE
+    + play(): void //redeffinition de la méthode play
 }
+
+class Episode{
+    - numero: integer
+    - saison: integer
+    - duree: integer
+    + getNumero(): integer
+    + getSaison(): integer
+    + getDuree(): integer
+}
+
+Serie "1" *-- "0..*" Episode
+Serie "1" -- "1" Episode : "episode courant"
 
 class Film extends Ressource
 class Documentaire extends Ressource
