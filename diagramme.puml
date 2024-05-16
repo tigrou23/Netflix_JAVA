@@ -18,8 +18,6 @@ Plateforme *-- Ressource
 ---- Définition des Ressources ----
 '/
 
-enum TYPE
-
 enum TYPE_FILM_SERIE {
     COMEDIE
     DRAME
@@ -44,9 +42,6 @@ enum TYPE_DOCUMENTAIRE{
     CINEMA
 }
 
-enum TYPE_FILM_SERIE extends TYPE
-enum TYPE_DOCUMENTAIRE extends TYPE
-
 class BandeAnnonce{
     - url: string
     - duree: integer
@@ -58,7 +53,6 @@ interface IRessource{
     + getAgeMin(): integer
     + getSortie(): date
     + getBandeAnnonce(): BandeAnnonce
-    + getType(): TYPE
 }
 
 note "on pourrait faire une classe Acteur" as acteur
@@ -70,12 +64,6 @@ abstract Ressource {
     - age_min: integer
     - sortie: date
     - type: TYPE
-    + getNom(): string
-    + getDescription(): string
-    + getAgeMin(): integer
-    + getSortie(): date
-    + getBandeAnnonce(): BandeAnnonce
-    + getType(): TYPE
     + play(): void
     + pause(): int // retourne le temps de lecture
 }
@@ -86,17 +74,24 @@ class Ressource implements IRessource
 class Film{
     - duree: integer
     - acteurs: string
+    - type: TYPE_FILM_SERIE
     + getDuree(): integer
     + getActeurs(): string
+    + getType(): TYPE_FILM_SERIE
 }
 
-class Documentaire
+class Documentaire{
+    - type: TYPE_DOCUMENTAIRE
+    + getType(): TYPE_DOCUMENTAIRE
+}
 
 class Serie{
     - nbSaisons: integer
     - nbEpisodes: integer
+    - type: TYPE_FILM_SERIE
     + getNbSaisons(): integer
     + getNbEpisodes(): integer
+    + getType(): TYPE_FILM_SERIE
 }
 
 class Film extends Ressource
