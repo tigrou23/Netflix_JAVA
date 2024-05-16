@@ -11,8 +11,8 @@ class Plateforme << (S,#FF7700) Singleton >>{
     + getUtilisateur(email: string): Utilisateur
 }
 
-Plateforme "1" *-- "0..*" Utilisateur
-Plateforme "1" *-- "0..*" Ressource
+Plateforme *-- "0..*" Utilisateur
+Plateforme *-- "0..*" Ressource
 
 /'
 ---- Définition des Ressources ----
@@ -103,8 +103,8 @@ class Episode{
     + getDuree(): integer
 }
 
-Serie "1" *-- "0..*" Episode
-Serie "1" -- "1" Episode : "episode courant"
+Serie *-- "0..*" Episode
+Serie -- "1" Episode : "episode courant"
 
 class Film extends Ressource
 class Documentaire extends Ressource
