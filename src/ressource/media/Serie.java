@@ -13,7 +13,7 @@ public class Serie extends Ressource {
     private Episode episodeCourant;
 
     public Serie(String nom, String description, int age_min, Date sortie, BandeAnnonce bandeAnnonce, List<Episode> listeEpisodes, TYPE_FILM_SERIE type) {
-        super(nom, description, age_min, sortie, bandeAnnonce);
+        super(nom, description, age_min, sortie, bandeAnnonce, 0);
         this.listeEpisodes = listeEpisodes;
         this.type = type;
         this.episodeCourant = listeEpisodes.get(0);
@@ -34,7 +34,6 @@ public class Serie extends Ressource {
     @Override
     public void play(int demarrage) {
         System.out.println("Lecture de la série " + getNom() + " ...");
-        System.out.println("Lecture de l'épisode " + episodeCourant.getNumero() + " de la saison " + episodeCourant.getSaison() + " ...");
         episodeCourant.play(demarrage);
         episodeCourant = listeEpisodes.get(listeEpisodes.indexOf(episodeCourant) + 1);
     }
