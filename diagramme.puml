@@ -1,0 +1,146 @@
+@startuml
+
+title Projet Netflix - Diagramme de Classe
+
+class Plateforme << (S,#FF7700) Singleton >>{
+    {static} - listeUtilisateur: List<Utilisateur>
+    {static} - listeRessource: List<Ressource>
+    {static} + getInstance(): Plateforme
+    + ajouterUtilisateur(utilisateur: Utilisateur): void
+    + ajouterRessource(ressource: Ressource): void
+    + getUtilisateur(email: string): Utilisateur
+}
+
+Plateforme *-- Utilisateur
+Plateforme *-- Ressource
+
+/'
+---- Définition des Ressources ----
+'/
+
+enum TYPE
+
+enum TYPE_FILM_SERIE {
+    COMEDIE
+    DRAME
+    ACTION
+    HORREUR
+    SCIENCE_FICTION
+    ANIMATION
+    AVENTURE
+    THRILLER
+    FANTASTIQUE
+}
+
+enum TYPE_DOCUMENTAIRE{
+    HISTOIRE
+    SCIENCE
+    NATURE
+    CUISINE
+    ART
+    POLITIQUE
+    SPORT
+    MUSIQUE
+    CINEMA
+}
+
+enum TYPE_FILM_SERIE extends TYPE
+enum TYPE_DOCUMENTAIRE extends TYPE
+
+class BandeAnnonce{
+    - url: string
+    - duree: integer
+}
+
+interface IRessource{
+    + getNom(): string
+    + getDescription(): string
+    + getAgeMin(): integer
+    + getSortie(): date
+    + getBandeAnnonce(): BandeAnnonce
+    + getType(): TYPE
+}
+
+note "on pourrait faire une classe Acteur" as acteur
+acteur .. Film
+
+abstract Ressource {
+    - nom: string
+    - description: string
+    - age_min: integer
+    - sortie: date
+    - type: TYPE
+    + getNom(): string
+    + getDescription(): string
+    + getAgeMin(): integer
+    + getSortie(): date
+    + getBandeAnnonce(): BandeAnnonce
+    + getType(): TYPE
+    + play(): void
+    + pause(): int // retourne le temps de lecture
+}
+
+Ressource "0..*" -- "1" BandeAnnonce
+class Ressource implements IRessource
+
+class Film{
+    - duree: integer
+    - acteurs: string
+    + getDuree(): integer
+    + getActeurs(): string
+}
+
+class Documentaire
+
+class Serie{
+    - nbSaisons: integer
+    - nbEpisodes: integer
+    + getNbSaisons(): integer
+    + getNbEpisodes(): integer
+}
+
+class Film extends Ressource
+class Documentaire extends Ressource
+class Serie extends Ressource
+
+/'
+---- Définition des Utilisateurs ----
+'/
+
+enum TYPE_ABONNEMENT{
+    SOLO
+    DUO
+    FAMILLE
+}
+
+class Abonnement{
+    - type: TYPE_ABONNEMENT
+    - dateDebut: date
+    - dateFin: date
+    + getType(): TYPE_ABONNEMENT
+    + getDateDebut(): date
+    + getDateFin(): date
+}
+
+class Utilisateur{
+    - email: string
+    - dateNaissance: date
+    - motDePasse: string
+    - rib: string
+    + getEmail(): string
+    + getDateNaissance(): date
+    + getMotDePasse(): string
+    + getRib(): string
+    + changerMotDePasse(motDePasse: string): void
+    + resilierAbonnement(): boolean
+    + ajouterFavoris(ressource: Ressource): void
+    + supprimerFavoris(ressource: Ressource): void
+    + ajouterLecture(ressource: Ressource): void
+    + supprimerLecture(ressource: Ressource): void
+}
+
+Utilisateur "0..*" -- "0..*" Ressource : "liste de favoris"
+Utilisateur "0..*" -- "0..*" Ressource : "liste de lecture" (map)
+Utilisateur "0..*" -- "1" Abonnement
+
+@enduml
