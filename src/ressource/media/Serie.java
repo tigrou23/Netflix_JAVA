@@ -31,6 +31,7 @@ public class Serie extends Ressource {
         return listeEpisodes.get(listeEpisodes.size() - 1).getSaison();
     }
 
+    @Override
     public void play() {
         System.out.println("Lecture de la série " + getNom() + " ...");
         System.out.println("Lecture de l'épisode " + episodeCourant.getNumero() + " de la saison " + episodeCourant.getSaison() + " ...");
