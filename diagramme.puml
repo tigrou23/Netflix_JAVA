@@ -63,7 +63,6 @@ abstract Ressource {
     - description: string
     - age_min: integer
     - sortie: date
-    - type: TYPE
     + play(): void
     + pause(): int // retourne le temps de lecture
 }
