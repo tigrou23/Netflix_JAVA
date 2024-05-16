@@ -62,19 +62,17 @@ abstract Ressource {
     - nom: string
     - description: string
     - age_min: integer
+    - duree: integer
     - sortie: date
-    + play(): void
-    + pause(): int // retourne le temps de lecture
+    + play(demarrage: int): void
 }
 
 Ressource "0..*" -- "1" BandeAnnonce
 class Ressource implements IRessource
 
 class Film{
-    - duree: integer
     - acteurs: string
     - type: TYPE_FILM_SERIE
-    + getDuree(): integer
     + getActeurs(): string
     + getType(): TYPE_FILM_SERIE
 }
@@ -91,16 +89,16 @@ class Serie{
     + getNbSaisons(): integer
     + getNbEpisodes(): integer
     + getType(): TYPE_FILM_SERIE
-    + play(): void //redeffinition de la méthode play
+    + play(demarrage: int): void //redeffinition de la méthode play
 }
 
 class Episode{
     - numero: integer
     - saison: integer
-    - duree: integer
+    {static} DUREE: integer
     + getNumero(): integer
     + getSaison(): integer
-    + getDuree(): integer
+    + play(demarrage: int): void
 }
 
 Serie *-- "0..*" Episode
@@ -134,12 +132,13 @@ class Utilisateur{
     - dateNaissance: date
     - motDePasse: string
     - rib: string
-    + getEmail(): string
+    + getEmail(): stringSoprp
     + getDateNaissance(): date
     + getMotDePasse(): string
     + getRib(): string
     + changerMotDePasse(motDePasse: string): void
-    + resilierAbonnement(): boolean
+    + resilierAbonnement(): void
+    + void souscrireAbonnement(abonnement: Abonnement): void
     + ajouterFavoris(ressource: Ressource): void
     + supprimerFavoris(ressource: Ressource): void
     + ajouterLecture(ressource: Ressource): void
@@ -147,7 +146,7 @@ class Utilisateur{
 }
 
 Utilisateur "0..*" -- "0..*" Ressource : "liste de favoris"
-Utilisateur "0..*" -- "0..*" Ressource : "liste de lecture" (map)
+Utilisateur "0..*" -- "0..*" Ressource : "liste de lecture"
 Utilisateur "0..*" -- "1" Abonnement
 
 @enduml
