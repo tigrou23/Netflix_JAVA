@@ -8,8 +8,8 @@ import java.util.Date;
 public class Documentaire extends Ressource {
     private TYPE_DOCUMENTAIRE type;
 
-    public Documentaire(String nom, String description, int age_min, Date sortie, BandeAnnonce bandeAnnonce, TYPE_DOCUMENTAIRE type) {
-        super(nom, description, age_min, sortie, bandeAnnonce);
+    public Documentaire(String nom, String description, int age_min, Date sortie, BandeAnnonce bandeAnnonce, TYPE_DOCUMENTAIRE type, int duree) {
+        super(nom, description, age_min, sortie, bandeAnnonce, duree);
         this.type = type;
     }
 
