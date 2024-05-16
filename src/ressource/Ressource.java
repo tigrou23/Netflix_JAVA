@@ -8,8 +8,9 @@ public abstract class Ressource implements IRessource{
     private int age_min;
     private Date sortie;
     private BandeAnnonce bandeAnnonce;
+    private int duree;
 
-    public Ressource(String nom, String description, int age_min, Date sortie, BandeAnnonce bandeAnnonce) {
+    public Ressource(String nom, String description, int age_min, Date sortie, BandeAnnonce bandeAnnonce, int duree) {
         this.nom = nom;
         this.description = description;
         this.age_min = age_min;
@@ -42,11 +43,13 @@ public abstract class Ressource implements IRessource{
         return bandeAnnonce;
     }
 
-    public void play() {
-        System.out.println("Lecture de " + nom + " ...");
+    public void play(int demarrage) {
+        int i = demarrage;
+        while(i < duree) {
+            System.out.println("Lecture de " + nom + " à " + i + " minutes ...");
+            i++;
+        }
+        System.out.println("Fin de " + nom + " ...");
     }
 
-    public void stop() {
-        System.out.println("Arrêt de " + nom + " ...");
-    }
 }

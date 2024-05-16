@@ -32,9 +32,10 @@ public class Serie extends Ressource {
     }
 
     @Override
-    public void play() {
+    public void play(int demarrage) {
         System.out.println("Lecture de la série " + getNom() + " ...");
         System.out.println("Lecture de l'épisode " + episodeCourant.getNumero() + " de la saison " + episodeCourant.getSaison() + " ...");
+        episodeCourant.play(demarrage);
         episodeCourant = listeEpisodes.get(listeEpisodes.indexOf(episodeCourant) + 1);
     }
 }
