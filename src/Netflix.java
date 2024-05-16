@@ -33,7 +33,7 @@ public final class Netflix {
             if (utilisateur.getEmail().equals(email)) {
                 return utilisateur;
             }
-        }
+        } return null;
     }
 
 }
