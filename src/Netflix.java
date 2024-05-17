@@ -1,6 +1,6 @@
 //Singleton
 
-import ressource.Ressource;
+import ressource.IRessource;
 import utilisateur.Utilisateur;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 public final class Netflix {
     private static Netflix instance;
     private static List<Utilisateur> listeUtilisateur = new ArrayList<>();
-    private static List<Ressource> listeRessource = new ArrayList<>();
+    private static List<IRessource> listeRessource = new ArrayList<>();
 
     private Netflix() {
     }
@@ -25,7 +25,7 @@ public final class Netflix {
         listeUtilisateur.add(utilisateur);
     }
 
-    public void ajouterRessource(Ressource ressource) {
+    public void ajouterRessource(IRessource ressource) {
         listeRessource.add(ressource);
     }
 

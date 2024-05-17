@@ -1,6 +1,6 @@
 package utilisateur;
 
-import ressource.Ressource;
+import ressource.IRessource;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,8 +12,8 @@ public class Utilisateur {
     private String motDePasse;
     private String rib;
     private Abonnement abonnement;
-    private List<Ressource> listeFavori = new ArrayList<>();
-    private List<Ressource> listeLecture = new ArrayList<>();
+    private List<IRessource> listeFavori = new ArrayList<>();
+    private List<IRessource> listeLecture = new ArrayList<>();
 
     public Utilisateur(String email, Date dateNaissance, String motDePasse, String rib, Abonnement abonnement) {
         this.email = email;
@@ -51,19 +51,19 @@ public class Utilisateur {
         this.abonnement = abonnement;
     }
 
-    public void ajouterFavori(Ressource ressource) {
+    public void ajouterFavori(IRessource ressource) {
         listeFavori.add(ressource);
     }
 
-    public void supprimerFavori(Ressource ressource) {
+    public void supprimerFavori(IRessource ressource) {
         listeFavori.remove(ressource);
     }
 
-    public void ajouterLecture(Ressource ressource) {
+    public void ajouterLecture(IRessource ressource) {
         listeLecture.add(ressource);
     }
 
-    public void supprimerLecture(Ressource ressource) {
+    public void supprimerLecture(IRessource ressource) {
         listeLecture.remove(ressource);
     }
 }

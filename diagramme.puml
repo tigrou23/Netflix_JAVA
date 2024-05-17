@@ -8,12 +8,12 @@ class Netflix << (S,#FF7700) Singleton >>{
     {static} - listeRessource: List<Ressource>
     {static} + getInstance(): Netflix
     + ajouterUtilisateur(utilisateur: Utilisateur): void
-    + ajouterRessource(ressource: Ressource): void
+    + ajouterRessource(ressource: IRessource): void
     + getUtilisateur(email: string): Utilisateur
 }
 
 Netflix *-- "0..*" Utilisateur
-Netflix *-- "0..*" Ressource
+Netflix *-- "0..*" IRessource
 
 /'
 ---- Définition des Ressources ----
@@ -45,7 +45,7 @@ enum TYPE_DOCUMENTAIRE{
 
 class BandeAnnonce{
     - url: string
-    - duree: integer
+    + getUrl(): string
 }
 
 interface IRessource{
@@ -146,8 +146,8 @@ class Utilisateur{
     + supprimerLecture(ressource: Ressource): void
 }
 
-Utilisateur "0..*" -- "0..*" Ressource : "liste de favoris"
-Utilisateur "0..*" -- "0..*" Ressource : "liste de lecture"
+Utilisateur "0..*" -- "0..*" IRessource : "liste de favoris"
+Utilisateur "0..*" -- "0..*" IRessource : "liste de lecture"
 Utilisateur "0..*" -- "1" Abonnement
 
 @enduml
