@@ -38,16 +38,8 @@ public class Serie extends Ressource {
         episodeCourant = listeEpisodes.get(listeEpisodes.indexOf(episodeCourant) + 1);
     }
 
+    @Override
     public String toString() {
-        return "Serie{" +
-                "nom='" + getNom() + '\'' +
-                ", description='" + getDescription() + '\'' +
-                ", age_min=" + getAgeMin() +
-                ", sortie=" + getSortie() +
-                ", bandeAnnonce=" + getBandeAnnonce().getUrl() +
-                ", type=" + type +
-                ", nbEpisodes=" + getNbEpisodes() +
-                ", nbSaisons=" + getNbSaisons() +
-                '}';
+        return getNom() + " - " + getDescription() + " (" + getNbEpisodes() + " épisodes, " + getNbSaisons() + " saisons)";
     }
 }

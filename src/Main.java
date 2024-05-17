@@ -27,7 +27,7 @@ public class Main {
         boolean connecte = false;
 
         while(enCours){
-            System.out.println("1. Se connecter");
+            System.out.println("\n\n1. Se connecter");
             System.out.println("2. Utiliser Netflix");
             System.out.print("3. Quitter\n > ");
             choix = scanner.nextInt();
@@ -47,10 +47,9 @@ public class Main {
                     String motDePasse = scanner.next();
                     if (utilisateur.getMotDePasse().equals(motDePasse)) {
                         System.out.println("Connexion réussie");
-                        Thread.sleep(1000);
                     } else {
                         System.err.println("Mot de passe incorrect");
-                        Thread.sleep(1000);
+                        Thread.sleep(1000); // ajout d'un petit délai pour laisser le temps à l'utilisateur de lire le message d'erreur
                         break;
                     }
                     connecte = true;
@@ -59,12 +58,12 @@ public class Main {
                 case 2:
                     if (!connecte) {
                         System.err.println("Vous devez vous connecter pour utiliser Netflix");
-                        Thread.sleep(1000);
+                        Thread.sleep(1000); // ajout d'un petit délai pour laisser le temps à l'utilisateur de lire le message d'erreur
                         break;
                     }
-                    System.out.println("1. Voir les films");
-                    System.out.println("2. Voir les séries");
-                    System.out.print("3. Voir les documentaires\n > ");
+                    System.out.println("\n\n1. Consulter le catalogue des films");
+                    System.out.println("2. Consulter le catalogue des séries");
+                    System.out.print("3. Consulter le catalogue des documentaires\n > ");
 
                     int decision = scanner.nextInt();
 

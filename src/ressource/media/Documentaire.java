@@ -17,15 +17,4 @@ public class Documentaire extends Ressource {
         return type;
     }
 
-    public String toString() {
-        return "Documentaire{" +
-                "nom='" + getNom() + '\'' +
-                ", description='" + getDescription() + '\'' +
-                ", age_min=" + getAgeMin() +
-                ", sortie=" + getSortie() +
-                ", bandeAnnonce=" + getBandeAnnonce().getUrl() +
-                ", type=" + type +
-                ", duree=" + getDuree() +
-                '}';
-    }
 }

@@ -16,6 +16,7 @@ public abstract class Ressource implements IRessource{
         this.age_min = age_min;
         this.sortie = sortie;
         this.bandeAnnonce = bandeAnnonce;
+        this.duree = duree;
     }
 
     @Override
@@ -56,4 +57,7 @@ public abstract class Ressource implements IRessource{
         System.out.println("Fin de " + nom + " ...");
     }
 
+    public String toString() {
+        return getNom() + " (" + duree + " min)" + " - " + getDescription();
+    }
 }
