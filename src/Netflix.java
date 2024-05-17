@@ -65,22 +65,22 @@ public final class Netflix {
         ajouterRessource(leLoupDeWallStreet);
         ajouterRessource(parasite);
 
-        IRessource gameOfThrones = new Serie("Game of Thrones", "Des familles nobles se disputent le trône de fer dans un royaume médiéval fantastique.", 16, new Date(2011, 4, 17), new BandeAnnonce("https://www.youtube.com/watch?v=rlR4PJn8b8I"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(2,1)), TYPE_FILM_SERIE.FANTASTIQUE);
-        IRessource breakingBad = new Serie("Breaking Bad", "Un professeur de chimie devient fabricant de méthamphétamine après avoir reçu un diagnostic de cancer.", 16, new Date(2008, 1, 20), new BandeAnnonce("https://www.youtube.com/watch?v=HhesaQXLuRY"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(1,3)), TYPE_FILM_SERIE.THRILLER);
-        IRessource strangerThings = new Serie("Stranger Things", "Un groupe d'enfants découvre des phénomènes surnaturels et des créatures terrifiantes.", 12, new Date(2016, 7, 15), new BandeAnnonce("https://www.youtube.com/watch?v=XWxyRG_tckY"), List.of(new Episode(1, 1), new Episode(2, 1), new Episode(3,1)), TYPE_FILM_SERIE.SCIENCE_FICTION);
-        IRessource theMandalorian = new Serie("The Mandalorian", "Un chasseur de primes solitaire parcourt la galaxie après la chute de l'Empire.", 12, new Date(2019, 11, 12), new BandeAnnonce("https://www.youtube.com/watch?v=eW7Twd85m2g"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(1,3)), TYPE_FILM_SERIE.SCIENCE_FICTION);
-        IRessource theOffice = new Serie("The Office", "C'est ma série préf", 12, new Date(2005, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), List.of(new Episode(1, 1), new Episode(2, 1)), TYPE_FILM_SERIE.COMEDIE);
+        IRessource gameOfThrones = new Serie("Game_of_Thrones", "Des familles nobles se disputent le trône de fer dans un royaume médiéval fantastique.", 16, new Date(2011, 4, 17), new BandeAnnonce("https://www.youtube.com/watch?v=rlR4PJn8b8I"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(2,1)), TYPE_FILM_SERIE.FANTASTIQUE);
+        IRessource breakingBad = new Serie("Breaking_Bad", "Un professeur de chimie devient fabricant de méthamphétamine après avoir reçu un diagnostic de cancer.", 16, new Date(2008, 1, 20), new BandeAnnonce("https://www.youtube.com/watch?v=HhesaQXLuRY"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(1,3)), TYPE_FILM_SERIE.THRILLER);
+        IRessource strangerThings = new Serie("Stranger_Things", "Un groupe d'enfants découvre des phénomènes surnaturels et des créatures terrifiantes.", 12, new Date(2016, 7, 15), new BandeAnnonce("https://www.youtube.com/watch?v=XWxyRG_tckY"), List.of(new Episode(1, 1), new Episode(2, 1), new Episode(3,1)), TYPE_FILM_SERIE.SCIENCE_FICTION);
+        IRessource theMandalorian = new Serie("The_Mandalorian", "Un chasseur de primes solitaire parcourt la galaxie après la chute de l'Empire.", 12, new Date(2019, 11, 12), new BandeAnnonce("https://www.youtube.com/watch?v=eW7Twd85m2g"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(1,3)), TYPE_FILM_SERIE.SCIENCE_FICTION);
+        IRessource theOffice = new Serie("The_Office", "C'est ma série préf", 12, new Date(2005, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), List.of(new Episode(1, 1), new Episode(2, 1)), TYPE_FILM_SERIE.COMEDIE);
         ajouterRessource(gameOfThrones);
         ajouterRessource(breakingBad);
         ajouterRessource(strangerThings);
         ajouterRessource(theMandalorian);
         ajouterRessource(theOffice);
 
-        IRessource lesOrques = new Documentaire("Les Orques", "Un documentaire sur les orques. Les orques sont des animaux marins très intelligents et très sociables", 12, new Date(2018, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.NATURE, 60);
-        IRessource laTerre = new Documentaire("La Terre", "Un documentaire sur la Terre. La Terre est une planète très belle et très fragile", 12, new Date(2019, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.NATURE, 25);
-        IRessource leSida = new Documentaire("Le Sida", "Un documentaire sur le Sida. Le Sida est une maladie très grave et très contagieuse", 12, new Date(2017, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.SCIENCE, 40);
-        IRessource leCinema = new Documentaire("Le Cinéma", "Un documentaire sur le Cinéma. Le Cinéma est un art très populaire et très ancien", 12, new Date(2016, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.CINEMA, 50);
-        IRessource laMusique = new Documentaire("La Musique", "Un documentaire sur la Musique. La Musique est un art très populaire et très ancien", 12, new Date(2015, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.ART, 30);
+        IRessource lesOrques = new Documentaire("Les_Orques", "Un documentaire sur les orques. Les orques sont des animaux marins très intelligents et très sociables", 12, new Date(2018, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.NATURE, 60);
+        IRessource laTerre = new Documentaire("La_Terre", "Un documentaire sur la Terre. La Terre est une planète très belle et très fragile", 12, new Date(2019, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.NATURE, 25);
+        IRessource leSida = new Documentaire("Le_Sida", "Un documentaire sur le Sida. Le Sida est une maladie très grave et très contagieuse", 12, new Date(2017, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.SCIENCE, 40);
+        IRessource leCinema = new Documentaire("Le_Cinema", "Un documentaire sur le Cinéma. Le Cinéma est un art très populaire et très ancien", 12, new Date(2016, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.CINEMA, 50);
+        IRessource laMusique = new Documentaire("La_Musique", "Un documentaire sur la Musique. La Musique est un art très populaire et très ancien", 12, new Date(2015, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.ART, 30);
         ajouterRessource(lesOrques);
         ajouterRessource(laTerre);
         ajouterRessource(leSida);

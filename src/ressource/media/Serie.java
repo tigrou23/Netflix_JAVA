@@ -31,6 +31,7 @@ public class Serie extends Ressource {
         return listeEpisodes.get(listeEpisodes.size() - 1).getSaison();
     }
 
+    //Auto Incrementation de l'épisod courant
     @Override
     public void play(int demarrage) {
         System.out.println("Lecture de la série " + getNom() + " ...");

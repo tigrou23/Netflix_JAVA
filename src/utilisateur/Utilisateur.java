@@ -7,10 +7,10 @@ import java.util.Date;
 import java.util.List;
 
 public class Utilisateur {
-    private String email;
-    private Date dateNaissance;
+    private final String email;
+    private final Date dateNaissance;
     private String motDePasse;
-    private String rib;
+    private final String rib;
     private Abonnement abonnement;
     private List<IRessource> listeFavori = new ArrayList<>();
     private List<IRessource> listeLecture = new ArrayList<>();

@@ -69,8 +69,6 @@ public class Main {
                     System.out.println("4. Ajouter dans les favoris");
                     System.out.println("5. Consulter les favoris");
                     System.out.println("6. Consulter la liste de lecture");
-
-                    //TODO: lire une ressource
                     System.out.print("7. Lire une ressource\n > ");
 
                     int decision = scanner.nextInt();
@@ -98,7 +96,7 @@ public class Main {
                             }
                             break;
                         case 4:
-                            System.out.print("Quelle ressource souhaitez-vous ajouter aux favoris ? (Rentrez le nom)\n > ");
+                            System.out.print("Quelle ressource souhaitez-vous ajouter aux favoris ? (Utilisez tiret du bas pour les espaces)\n > ");
                             String response = scanner.next();
                             IRessource ressource = netflix.getRessource(response);
                             if(ressource != null){
@@ -119,11 +117,19 @@ public class Main {
                             System.out.println(netflix.printLectures(utilisateur));
                             break;
                         case 7:
-
+                            System.out.print("Quelle ressource souhaitez-vous jouer ? (Utilisez tiret du bas pour les espaces)\n > ");
+                            String rep = scanner.next();
+                            IRessource res = netflix.getRessource(rep);
+                            if(res != null){
+                                assert utilisateur != null;
+                                utilisateur.ajouterLecture(res);
+                            }else{
+                                System.err.println("Ressource inconnue");
+                                Thread.sleep(1000); // ajout d'un petit délai pour laisser le temps à l'utilisateur de lire le message d'erreur
+                            }
                             break;
                     }
                     break;
-
                     case 3:
                         System.out.println("Au revoir et à bientôt");
                         return;
