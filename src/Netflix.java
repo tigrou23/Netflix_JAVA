@@ -93,7 +93,6 @@ public final class Netflix {
     }
 
     public IRessource getRessource(String nom){
-        IRessource ressource;
         for (IRessource r: listeRessource){
             if(r.getNom().equals(nom)) return r;
         }return null;
