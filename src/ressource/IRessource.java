@@ -9,4 +9,6 @@ public interface IRessource {
     int getAgeMin();
     Date getSortie();
     BandeAnnonce getBandeAnnonce();
+    int getDuree();
+    String toString();
 }

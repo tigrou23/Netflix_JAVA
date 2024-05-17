@@ -23,4 +23,17 @@ public class Film extends Ressource {
     public TYPE_FILM_SERIE getType() {
         return type;
     }
+
+    public String toString() {
+        return "Film{" +
+                "nom='" + getNom() + '\'' +
+                ", description='" + getDescription() + '\'' +
+                ", age_min=" + getAgeMin() +
+                ", sortie=" + getSortie() +
+                ", bandeAnnonce=" + getBandeAnnonce().getUrl() +
+                ", duree=" + getDuree() +
+                ", acteurs=" + acteurs +
+                ", type=" + type +
+                '}';
+    }
 }

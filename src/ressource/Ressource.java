@@ -43,6 +43,10 @@ public abstract class Ressource implements IRessource{
         return bandeAnnonce;
     }
 
+    public int getDuree() {
+        return duree;
+    }
+
     public void play(int demarrage) {
         int i = demarrage;
         while(i < duree) {

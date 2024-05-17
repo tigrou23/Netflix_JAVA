@@ -37,4 +37,17 @@ public class Serie extends Ressource {
         episodeCourant.play(demarrage);
         episodeCourant = listeEpisodes.get(listeEpisodes.indexOf(episodeCourant) + 1);
     }
+
+    public String toString() {
+        return "Serie{" +
+                "nom='" + getNom() + '\'' +
+                ", description='" + getDescription() + '\'' +
+                ", age_min=" + getAgeMin() +
+                ", sortie=" + getSortie() +
+                ", bandeAnnonce=" + getBandeAnnonce().getUrl() +
+                ", type=" + type +
+                ", nbEpisodes=" + getNbEpisodes() +
+                ", nbSaisons=" + getNbSaisons() +
+                '}';
+    }
 }

@@ -10,6 +10,8 @@ class Netflix << (S,#FF7700) Singleton >>{
     + ajouterUtilisateur(utilisateur: Utilisateur): void
     + ajouterRessource(ressource: IRessource): void
     + getUtilisateur(email: string): Utilisateur
+    + init(): void
+    + getListeRessource(): List<IRessource>
 }
 
 Netflix *-- "0..*" Utilisateur

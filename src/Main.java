@@ -13,50 +13,90 @@ import ressource.types.TYPE_FILM_SERIE;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Netflix netflix = Netflix.getInstance();
+        netflix.init();
 
-        Utilisateur hugo = new Utilisateur("hugo@hello.com", new Date(2003, 8, 7), "12", "AIJEOIJZORIHOI", new Abonnement(TYPE_ABONNEMENT.SOLO, new Date()));
-        Utilisateur souheila = new Utilisateur("souheila@hello.com", new Date(2003, 8, 1), "34", "IJZORIHOI", new Abonnement(TYPE_ABONNEMENT.DUO, new Date()));
-        netflix.ajouterUtilisateur(hugo);
-        netflix.ajouterUtilisateur(souheila);
+        boolean enCours = true;
+        Scanner scanner = new Scanner(System.in);
+        int choix;
+        boolean connecte = false;
 
-        IRessource intouchable = new Film("Intouchable", "Un film très touchant", 12, new Date(2011, 11, 2), new BandeAnnonce("https://www.youtube.com/watch?v=34kZ5C1u6jY"), 112, List.of("Omar Sy", "François Cluzet"), TYPE_FILM_SERIE.COMEDIE);
-        IRessource inception = new Film("Inception", "Un film de science-fiction", 12, new Date(2010, 7, 21), new BandeAnnonce("https://www.youtube.com/watch?v=YoHD9XEInc0"), 148, List.of("Leonardo DiCaprio", "Joseph Gordon-Levitt"), TYPE_FILM_SERIE.SCIENCE_FICTION);
-        IRessource interstellar = new Film("Interstellar", "trop bien wsh", 12, new Date(2014, 11, 5), new BandeAnnonce("https://www.youtube.com/watch?v=zSWdZVtXT7E"), 169, List.of("Matthew McConaughey", "Anne Hathaway"), TYPE_FILM_SERIE.SCIENCE_FICTION);
-        IRessource leLoupDeWallStreet = new Film("Le Loup de Wall Street", "Un film de crime", 16, new Date(2013, 12, 25), new BandeAnnonce("https://www.youtube.com/watch?v=iszwuX1AK6A"), 180, List.of("Leonardo DiCaprio", "Jonah Hill"), TYPE_FILM_SERIE.THRILLER);
-        IRessource parasite = new Film("Parasite", "Un film de drame", 16, new Date(2019, 5, 30), new BandeAnnonce("https://www.youtube.com/watch?v=5xH0HfJHsaY"), 132, List.of("Kang-ho Song", "Sun-kyun Lee"), TYPE_FILM_SERIE.DRAME);
-        netflix.ajouterRessource(intouchable);
-        netflix.ajouterRessource(inception);
-        netflix.ajouterRessource(interstellar);
-        netflix.ajouterRessource(leLoupDeWallStreet);
-        netflix.ajouterRessource(parasite);
+        while(enCours){
+            System.out.println("1. Se connecter");
+            System.out.println("2. Utiliser Netflix");
+            System.out.print("3. Quitter\n > ");
+            choix = scanner.nextInt();
+            switch(choix) {
+                case 1:
+                    System.out.print("Entrez votre email :\n > ");
+                    String email = scanner.next();
+                    Utilisateur utilisateur = netflix.getUtilisateur(email);
+                    if (utilisateur != null) {
+                        System.out.println("Bienvenue " + utilisateur.getEmail());
+                    } else {
+                        System.err.println("Utilisateur non trouvé");
+                        Thread.sleep(1000); // ajout d'un petit délai pour laisser le temps à l'utilisateur de lire le message d'erreur
+                        break;
+                    }
+                    System.out.print("Entrez votre mot de passe :\n > ");
+                    String motDePasse = scanner.next();
+                    if (utilisateur.getMotDePasse().equals(motDePasse)) {
+                        System.out.println("Connexion réussie");
+                        Thread.sleep(1000);
+                    } else {
+                        System.err.println("Mot de passe incorrect");
+                        Thread.sleep(1000);
+                        break;
+                    }
+                    connecte = true;
+                    break;
 
-        IRessource gameOfThrones = new Serie("Game of Thrones", "Une série fantastique", 16, new Date(2011, 4, 17), new BandeAnnonce("https://www.youtube.com/watch?v=rlR4PJn8b8I"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(2,1)), TYPE_FILM_SERIE.FANTASTIQUE);
-        IRessource breakingBad = new Serie("Breaking Bad", "Une série de crime", 16, new Date(2008, 1, 20), new BandeAnnonce("https://www.youtube.com/watch?v=HhesaQXLuRY"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(1,3)), TYPE_FILM_SERIE.THRILLER);
-        IRessource strangerThings = new Serie("Stranger Things", "Une série de science-fiction", 12, new Date(2016, 7, 15), new BandeAnnonce("https://www.youtube.com/watch?v=XWxyRG_tckY"), List.of(new Episode(1, 1), new Episode(2, 1), new Episode(3,1)), TYPE_FILM_SERIE.SCIENCE_FICTION);
-        IRessource theMandalorian = new Serie("The Mandalorian", "Une série de science-fiction", 12, new Date(2019, 11, 12), new BandeAnnonce("https://www.youtube.com/watch?v=eW7Twd85m2g"), List.of(new Episode(1, 1), new Episode(1, 2), new Episode(1,3)), TYPE_FILM_SERIE.SCIENCE_FICTION);
-        IRessource theOffice = new Serie("The Office", "C'est ma série préf", 12, new Date(2005, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), List.of(new Episode(1, 1), new Episode(2, 1)), TYPE_FILM_SERIE.COMEDIE);
-        netflix.ajouterRessource(gameOfThrones);
-        netflix.ajouterRessource(breakingBad);
-        netflix.ajouterRessource(strangerThings);
-        netflix.ajouterRessource(theMandalorian);
-        netflix.ajouterRessource(theOffice);
+                case 2:
+                    if (!connecte) {
+                        System.err.println("Vous devez vous connecter pour utiliser Netflix");
+                        Thread.sleep(1000);
+                        break;
+                    }
+                    System.out.println("1. Voir les films");
+                    System.out.println("2. Voir les séries");
+                    System.out.print("3. Voir les documentaires\n > ");
 
-        IRessource lesOrques = new Documentaire("Les Orques", "Un documentaire sur les orques. Les orques sont des animaux marins très intelligents et très sociables", 12, new Date(2018, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.NATURE, 60);
-        IRessource laTerre = new Documentaire("La Terre", "Un documentaire sur la Terre. La Terre est une planète très belle et très fragile", 12, new Date(2019, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.NATURE, 25);
-        IRessource leSida = new Documentaire("Le Sida", "Un documentaire sur le Sida. Le Sida est une maladie très grave et très contagieuse", 12, new Date(2017, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.SCIENCE, 40);
-        IRessource leCinéma = new Documentaire("Le Cinéma", "Un documentaire sur le Cinéma. Le Cinéma est un art très populaire et très ancien", 12, new Date(2016, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.CINEMA, 50);
-        IRessource laMusique = new Documentaire("La Musique", "Un documentaire sur la Musique. La Musique est un art très populaire et très ancien", 12, new Date(2015, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.ART, 30);
-        netflix.ajouterRessource(lesOrques);
-        netflix.ajouterRessource(laTerre);
-        netflix.ajouterRessource(leSida);
-        netflix.ajouterRessource(leCinéma);
-        netflix.ajouterRessource(laMusique);
+                    int decision = scanner.nextInt();
 
+                    switch (decision) {
+                        case 1:
+                            for (IRessource ressource : netflix.getListeRessource()) {
+                                if (ressource instanceof Film) {
+                                    System.out.println(ressource);
+                                }
+                            }
+                            break;
+                        case 2:
+                            for (IRessource ressource : netflix.getListeRessource()) {
+                                if (ressource instanceof Serie) {
+                                    System.out.println(ressource);
+                                }
+                            }
+                            break;
+                        case 3:
+                            for (IRessource ressource : netflix.getListeRessource()) {
+                                if (ressource instanceof Documentaire) {
+                                    System.out.println(ressource);
+                                }
+                            }
+                            break;
+                    }
+                    break;
 
+                    case 3:
+                        System.out.println("Au revoir et à bientôt");
+                        return;
+            }
+        }
     }
 }
