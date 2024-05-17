@@ -1,3 +1,5 @@
+package utilisateur;
+
 import ressource.Ressource;
 
 import java.util.ArrayList;

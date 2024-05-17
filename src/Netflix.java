@@ -1,6 +1,7 @@
 //Singleton
 
 import ressource.Ressource;
+import utilisateur.Utilisateur;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,3 +1,5 @@
+package utilisateur;
+
 import java.util.Date;
 
 public class Abonnement {
