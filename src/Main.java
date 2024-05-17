@@ -1,19 +1,8 @@
-import ressource.BandeAnnonce;
 import ressource.IRessource;
-import ressource.Ressource;
 import ressource.media.Documentaire;
-import ressource.media.Episode;
 import ressource.media.Film;
 import ressource.media.Serie;
-import ressource.types.TYPE_DOCUMENTAIRE;
-import utilisateur.Abonnement;
 import utilisateur.Utilisateur;
-import utilisateur.TYPE_ABONNEMENT;
-import ressource.types.TYPE_FILM_SERIE;
-
-import java.sql.SQLOutput;
-import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
