@@ -69,6 +69,7 @@ public class Utilisateur {
 
     public void ajouterLecture(IRessource ressource) {
         listeLecture.add(ressource);
+        ressource.play(0); //simplification :/
     }
 
     public void supprimerLecture(IRessource ressource) {

@@ -14,6 +14,7 @@ class Netflix << (S,#FF7700) Singleton >>{
     + getListeRessource(): List<IRessource>
     + getRessource(String nom): IRessource
     + printFavoris(Utilisateur utilisateur): String
+    + printLectures(Utilisateur utilisateur): String
 }
 
 Netflix *-- "0..*" Utilisateur
@@ -58,6 +59,8 @@ interface IRessource{
     + getAgeMin(): integer
     + getSortie(): date
     + getBandeAnnonce(): BandeAnnonce
+    + play(demarrage: int): void
+    + toString(): string
 }
 
 note "on pourrait faire une classe Acteur" as acteur
@@ -69,8 +72,6 @@ abstract Ressource {
     - age_min: integer
     - duree: integer
     - sortie: date
-    + play(demarrage: int): void
-    + toString(): string
 }
 
 Ressource "0..*" -- "1" BandeAnnonce

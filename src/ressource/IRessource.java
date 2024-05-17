@@ -11,4 +11,5 @@ public interface IRessource {
     BandeAnnonce getBandeAnnonce();
     int getDuree();
     String toString();
+    void play(int demarrage);
 }

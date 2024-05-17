@@ -108,4 +108,14 @@ public final class Netflix {
         return sb.toString();
     }
 
+    public String printLectures(Utilisateur utilisateur){
+        StringBuilder sb = new StringBuilder();
+        List<IRessource> lectures = utilisateur.getListeLecture();
+        if(lectures.isEmpty()) return "Aucun média visionné";
+        for (int i = 1; i <= lectures.size(); i++) {
+            sb.append(i).append(".    ").append(lectures.get(i-1).getNom()); //!\\ i commence à 1
+        }
+        return sb.toString();
+    }
+
 }

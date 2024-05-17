@@ -117,7 +117,8 @@ public class Main {
                             System.out.println(netflix.printFavoris(utilisateur));
                             break;
                         case 6:
-
+                            assert utilisateur != null;
+                            System.out.println(netflix.printLectures(utilisateur));
                             break;
                         case 7:
 
