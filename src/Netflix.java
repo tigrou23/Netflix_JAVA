@@ -1,5 +1,6 @@
 //Singleton
 
+import jdk.jshell.execution.Util;
 import ressource.BandeAnnonce;
 import ressource.IRessource;
 import ressource.media.Documentaire;
@@ -89,6 +90,23 @@ public final class Netflix {
 
     public List<IRessource> getListeRessource() {
         return listeRessource;
+    }
+
+    public IRessource getRessource(String nom){
+        IRessource ressource;
+        for (IRessource r: listeRessource){
+            if(r.getNom().equals(nom)) return r;
+        }return null;
+    }
+
+    public String printFavoris(Utilisateur utilisateur){
+        StringBuilder sb = new StringBuilder();
+        List<IRessource> favoris = utilisateur.getListeFavori();
+        if(favoris.isEmpty()) return "Aucun favori";
+        for (int i = 1; i <= favoris.size(); i++) {
+            sb.append(i).append(".    ").append(favoris.get(i-1).getNom()); //!\\ i commence à 1
+        }
+        return sb.toString();
     }
 
 }

@@ -55,6 +55,14 @@ public class Utilisateur {
         listeFavori.add(ressource);
     }
 
+    public List<IRessource> getListeFavori(){
+        return listeFavori;
+    }
+
+    public List<IRessource> getListeLecture(){
+        return listeLecture;
+    }
+
     public void supprimerFavori(IRessource ressource) {
         listeFavori.remove(ressource);
     }

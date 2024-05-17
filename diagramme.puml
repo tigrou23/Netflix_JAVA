@@ -12,6 +12,8 @@ class Netflix << (S,#FF7700) Singleton >>{
     + getUtilisateur(email: string): Utilisateur
     + init(): void
     + getListeRessource(): List<IRessource>
+    + getRessource(String nom): IRessource
+    + printFavoris(Utilisateur utilisateur): String
 }
 
 Netflix *-- "0..*" Utilisateur
@@ -146,8 +148,10 @@ class Utilisateur{
     + void souscrireAbonnement(abonnement: Abonnement): void
     + ajouterFavoris(ressource: Ressource): void
     + supprimerFavoris(ressource: Ressource): void
+    + getFavori(): List<IRessource>
     + ajouterLecture(ressource: Ressource): void
     + supprimerLecture(ressource: Ressource): void
+    + getLecture(): List<IRessource>
 }
 
 Utilisateur "0..*" -- "0..*" IRessource : "liste de favoris"

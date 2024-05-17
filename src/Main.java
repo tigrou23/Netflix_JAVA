@@ -11,6 +11,7 @@ import utilisateur.Utilisateur;
 import utilisateur.TYPE_ABONNEMENT;
 import ressource.types.TYPE_FILM_SERIE;
 
+import java.sql.SQLOutput;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -25,6 +26,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int choix;
         boolean connecte = false;
+        Utilisateur utilisateur = null;
 
         while(enCours){
             System.out.println("\n\n1. Se connecter");
@@ -35,7 +37,7 @@ public class Main {
                 case 1:
                     System.out.print("Entrez votre email :\n > ");
                     String email = scanner.next();
-                    Utilisateur utilisateur = netflix.getUtilisateur(email);
+                    utilisateur = netflix.getUtilisateur(email);
                     if (utilisateur != null) {
                         System.out.println("Bienvenue " + utilisateur.getEmail());
                     } else {
@@ -63,7 +65,15 @@ public class Main {
                     }
                     System.out.println("\n\n1. Consulter le catalogue des films");
                     System.out.println("2. Consulter le catalogue des séries");
-                    System.out.print("3. Consulter le catalogue des documentaires\n > ");
+                    System.out.println("3. Consulter le catalogue des documentaires");
+                    System.out.println("4. Ajouter dans les favoris");
+                    System.out.println("5. Consulter les favoris");
+
+                    //TODO: Consulter liste de lecture
+                    System.out.println("6. Consulter la liste de lecture");
+
+                    //TODO: lire une ressource
+                    System.out.print("7. Lire une ressource\n > ");
 
                     int decision = scanner.nextInt();
 
@@ -88,6 +98,29 @@ public class Main {
                                     System.out.println(ressource);
                                 }
                             }
+                            break;
+                        case 4:
+                            System.out.print("Quelle ressource souhaitez-vous ajouter aux favoris ? (Rentrez le nom)\n > ");
+                            String response = scanner.next();
+                            IRessource ressource = netflix.getRessource(response);
+                            if(ressource != null){
+                                assert utilisateur != null;
+                                utilisateur.ajouterFavori(ressource);
+                                System.out.println("Ressource ajoutée aux favoris");
+                            }else{
+                                System.err.println("Ressource inconnue");
+                                Thread.sleep(1000); // ajout d'un petit délai pour laisser le temps à l'utilisateur de lire le message d'erreur
+                            }
+                            break;
+                        case 5:
+                            assert utilisateur != null;
+                            System.out.println(netflix.printFavoris(utilisateur));
+                            break;
+                        case 6:
+
+                            break;
+                        case 7:
+
                             break;
                     }
                     break;
