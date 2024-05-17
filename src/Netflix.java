@@ -14,7 +14,7 @@ public final class Netflix {
     private Netflix() {
     }
 
-    public static Netflix getInstance(String value) {
+    public static Netflix getInstance() {
         if (instance == null) {
             instance = new Netflix();
         }
