@@ -68,6 +68,7 @@ abstract Ressource {
     - duree: integer
     - sortie: date
     + play(demarrage: int): void
+    + toString(): string
 }
 
 Ressource "0..*" -- "1" BandeAnnonce
@@ -92,7 +93,8 @@ class Serie{
     + getNbSaisons(): integer
     + getNbEpisodes(): integer
     + getType(): TYPE_FILM_SERIE
-    + play(demarrage: int): void //redeffinition de la méthode play
+    + play(demarrage: int): void //@Override
+    + toString(): string //@Override
 }
 
 class Episode{
