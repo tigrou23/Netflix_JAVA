@@ -68,8 +68,6 @@ public class Main {
                     System.out.println("3. Consulter le catalogue des documentaires");
                     System.out.println("4. Ajouter dans les favoris");
                     System.out.println("5. Consulter les favoris");
-
-                    //TODO: Consulter liste de lecture
                     System.out.println("6. Consulter la liste de lecture");
 
                     //TODO: lire une ressource
