@@ -117,4 +117,42 @@ public final class Netflix {
         return sb.toString();
     }
 
+    public String printCatalogue(Class<? extends IRessource> type, String domaine){
+        StringBuilder sb = new StringBuilder();
+
+        if(type == Film.class){
+            TYPE_FILM_SERIE type_film = TYPE_FILM_SERIE.valueOf(domaine);
+            for (IRessource ressource : listeRessource) {
+                if (type.isInstance(ressource)) {
+                    Film film = (Film) ressource;
+                    if(film.getType() == type_film) {
+                        sb.append(film.getNom()).append("\n");
+                    }
+                }
+            }
+        }
+
+        if(type == Serie.class){
+            TYPE_FILM_SERIE type_serie = TYPE_FILM_SERIE.valueOf(domaine);
+            for (IRessource ressource : listeRessource) {
+                if (type.isInstance(ressource)) {
+                    Serie serie = (Serie) ressource;
+                    if(serie.getType() == type_serie) sb.append(serie.getNom()).append("\n");
+                }
+            }
+        }
+
+        if(type == Documentaire.class){
+            TYPE_DOCUMENTAIRE type_doc = TYPE_DOCUMENTAIRE.valueOf(domaine);
+            for (IRessource ressource : listeRessource) {
+                if (type.isInstance(ressource)) {
+                    Documentaire doc = (Documentaire) ressource;
+                    if(doc.getType() == type_doc) sb.append(doc.getNom()).append("\n");
+                }
+            }
+        }
+
+        return sb.toString();
+    }
+
 }

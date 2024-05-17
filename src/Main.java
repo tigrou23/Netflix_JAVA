@@ -2,6 +2,8 @@ import ressource.IRessource;
 import ressource.media.Documentaire;
 import ressource.media.Film;
 import ressource.media.Serie;
+import ressource.types.TYPE_DOCUMENTAIRE;
+import ressource.types.TYPE_FILM_SERIE;
 import utilisateur.Utilisateur;
 import java.util.Scanner;
 
@@ -64,25 +66,28 @@ public class Main {
 
                     switch (decision) {
                         case 1:
-                            for (IRessource ressource : netflix.getListeRessource()) {
-                                if (ressource instanceof Film) {
-                                    System.out.println(ressource);
-                                }
+                            for (TYPE_FILM_SERIE type : TYPE_FILM_SERIE.values()) {
+                                System.out.println(type);
                             }
+                            System.out.print("\nQuel domaine ?\n > ");
+                            String domaine1 = scanner.next();
+                            System.out.println(netflix.printCatalogue(Film.class, domaine1));
                             break;
                         case 2:
-                            for (IRessource ressource : netflix.getListeRessource()) {
-                                if (ressource instanceof Serie) {
-                                    System.out.println(ressource);
-                                }
+                            for (TYPE_FILM_SERIE type : TYPE_FILM_SERIE.values()) {
+                                System.out.println(type);
                             }
+                            System.out.print("\nQuel domaine ?\n > ");
+                            String domaine2 = scanner.next();
+                            System.out.println(netflix.printCatalogue(Serie.class, domaine2));
                             break;
                         case 3:
-                            for (IRessource ressource : netflix.getListeRessource()) {
-                                if (ressource instanceof Documentaire) {
-                                    System.out.println(ressource);
-                                }
+                            for (TYPE_DOCUMENTAIRE type : TYPE_DOCUMENTAIRE.values()) {
+                                System.out.println(type);
                             }
+                            System.out.print("\nQuel domaine ?\n > ");
+                            String domaine3 = scanner.next();
+                            System.out.println(netflix.printCatalogue(Documentaire.class, domaine3));
                             break;
                         case 4:
                             System.out.print("Quelle ressource souhaitez-vous ajouter aux favoris ? (Utilisez tiret du bas pour les espaces)\n > ");
