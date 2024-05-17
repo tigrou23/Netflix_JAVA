@@ -79,12 +79,12 @@ public final class Netflix {
         IRessource lesOrques = new Documentaire("Les Orques", "Un documentaire sur les orques. Les orques sont des animaux marins très intelligents et très sociables", 12, new Date(2018, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.NATURE, 60);
         IRessource laTerre = new Documentaire("La Terre", "Un documentaire sur la Terre. La Terre est une planète très belle et très fragile", 12, new Date(2019, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.NATURE, 25);
         IRessource leSida = new Documentaire("Le Sida", "Un documentaire sur le Sida. Le Sida est une maladie très grave et très contagieuse", 12, new Date(2017, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.SCIENCE, 40);
-        IRessource leCinéma = new Documentaire("Le Cinéma", "Un documentaire sur le Cinéma. Le Cinéma est un art très populaire et très ancien", 12, new Date(2016, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.CINEMA, 50);
+        IRessource leCinema = new Documentaire("Le Cinéma", "Un documentaire sur le Cinéma. Le Cinéma est un art très populaire et très ancien", 12, new Date(2016, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.CINEMA, 50);
         IRessource laMusique = new Documentaire("La Musique", "Un documentaire sur la Musique. La Musique est un art très populaire et très ancien", 12, new Date(2015, 3, 24), new BandeAnnonce("https://www.youtube.com/watch?v=U0Y3n5bJvEk"), TYPE_DOCUMENTAIRE.ART, 30);
         ajouterRessource(lesOrques);
         ajouterRessource(laTerre);
         ajouterRessource(leSida);
-        ajouterRessource(leCinéma);
+        ajouterRessource(leCinema);
         ajouterRessource(laMusique);
     }
 
